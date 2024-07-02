@@ -1,5 +1,7 @@
 # Ransomware Detection and Mitigation for Smart Business Management System IoT Networks
 
+![Ransomware Detection and Mitigation for Smart Business Management System IoT Networks - Topology](https://github.com/dhiiiinnn7/Ransomware-Detection-and-Mitigation-for-Smart-Business-Management-System-IoT-Networks/blob/main/Final%20Project%20Files%20and%20Report/Ransomware%20Detection%20and%20Mitigation%20for%20Smart%20Business%20Management%20System%20IoT%20Networks.png)
+
 ## Overview
 
 This project focuses on the critical issue of ransomware detection and mitigation within Smart Business Management Systems (SBMS) enhanced by Internet of Things (IoT) networks. By leveraging Cisco Packet Tracer, this project simulates various security scenarios to protect IoT networks from ransomware attacks. The simulations include implementations of firewalls, Intrusion Detection and Prevention Systems (IDPS), and Software-Defined Networking (SDN), both individually and in combination, to demonstrate a multi-layered security approach.
