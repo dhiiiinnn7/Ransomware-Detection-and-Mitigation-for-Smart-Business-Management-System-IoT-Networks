@@ -1,0 +1,136 @@
+!
+version 15.4
+service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname ROUTER2
+!
+!
+!
+enable secret 5 $1$mERr$hbENBfUeQECKooMANN4/2/
+!
+!
+!
+!
+!
+!
+no ip cef
+no ipv6 cef
+!
+!
+!
+username SDNnetworksecurity secret 5 $1$mERr$C37ombOqmsN4eydMeSm6r1
+!
+!
+!
+!
+!
+!
+!
+!
+ip ssh version 2
+ip domain-name networksecurity.com
+ip name-server 192.168.4.2
+!
+!
+spanning-tree mode pvst
+!
+class-map match-any Business-Irrelevant
+ match protocol icmp
+!
+policy-map PT_CONTROLLER_QUEUING_OUT
+ class Business-Irrelevant
+  bandwidth remaining percent 38
+!
+policy-map PT_CONTROLLER_MARKING_IN
+ class Business-Irrelevant
+  set ip dscp cs1
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0/0
+ description Connected to Ethernet network
+ ip address 192.168.0.1 255.255.255.0
+ service-policy input PT_CONTROLLER_MARKING_IN
+ service-policy output PT_CONTROLLER_QUEUING_OUT
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/0/1
+ description Connected to Ethernet network
+ ip address 192.168.6.1 255.255.255.0
+ service-policy input PT_CONTROLLER_MARKING_IN
+ service-policy output PT_CONTROLLER_QUEUING_OUT
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/0/2
+ no ip address
+ service-policy input PT_CONTROLLER_MARKING_IN
+ service-policy output PT_CONTROLLER_QUEUING_OUT
+ duplex auto
+ speed auto
+ shutdown
+!
+interface Serial0/1/0
+ description Connected to router Router3
+ ip address 172.16.2.1 255.255.255.252
+ service-policy input PT_CONTROLLER_MARKING_IN
+ service-policy output PT_CONTROLLER_QUEUING_OUT
+ clock rate 56000
+!
+interface Serial0/1/1
+ description Connected to router Router1
+ ip address 172.16.1.2 255.255.255.252
+ service-policy input PT_CONTROLLER_MARKING_IN
+ service-policy output PT_CONTROLLER_QUEUING_OUT
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+router ospf 1
+ router-id 2.1.2.3
+ log-adjacency-changes
+ auto-cost reference-bandwidth 1000
+ network 192.168.6.0 0.0.0.255 area 0
+ network 172.16.1.0 0.0.0.3 area 0
+ network 172.16.2.0 0.0.0.3 area 0
+ network 192.168.0.0 0.0.0.255 area 0
+!
+router rip
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+logging 192.168.4.4
+line con 0
+ exec-timeout 5 0
+ password 7 08220D5D2A16254445
+ logging synchronous
+ login
+!
+line aux 0
+!
+line vty 0 4
+ exec-timeout 5 0
+ password 7 08220D5D2A16254445
+ logging synchronous
+ login local
+ transport input ssh
+!
+!
+ntp server 192.168.4.4
+!
+end
+
