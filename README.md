@@ -52,11 +52,11 @@ By providing detailed configurations and scripts, the project serves as a valuab
 - `ID CARD - UNAUTHORISED.py`: Python code for unauthorized ID card simulation.
 - `ID CARD READER.py`: Python code for ID card reader simulation.
 - `MCU 3 - Temperature Monitor.py`: Python code for temperature monitoring.
-- `RANSOMWARE.py`: Python code simulating ransomware behavior.
 - `RESTRICTED AREA DOOR.py`: Python code for restricted area door control.
 - `SBC 1 - Fire Alert.py`: Python code for fire alert system.
 - `SBC 1 - Motion Alert.py`: Python code for motion alert system.
 - `RANSOMWARE PAYLOAD BY MALICIOUS HOST.py`: Python code for the main ransomware payload.
+- `RANSOMWARE PAYLOAD - Server.py`: Python code simulating ransomware behaviour.
 
 ### Packet Tracer Scenarios
 
@@ -102,8 +102,6 @@ The final scenario integrates all three security features (Firewall, IDPS, and S
 
 - **MCU 3 - Temperature Monitor.py**: This script is used to monitor and control the room temperature. It collects temperature data from sensors and can trigger alerts or actions if the temperature goes beyond predefined thresholds.
 
-- **RANSOMWARE.py**: This script simulates ransomware behavior. It mimics the actions of ransomware on the network, such as encrypting files and demanding ransom, to test the effectiveness of the implemented security measures.
-
 - **RESTRICTED AREA DOOR.py**: This script controls the access to restricted areas by managing the door mechanism. It ensures that only authorized personnel with valid ID cards can enter these areas.
 
 - **SBC 1 - Fire Alert.py**: This script manages the fire alert system. It processes data from fire detection sensors and triggers alarms and notifications to alert users and administrators of potential fire hazards.
@@ -112,6 +110,7 @@ The final scenario integrates all three security features (Firewall, IDPS, and S
 
 - **RANSOMWARE PAYLOAD BY MALICIOUS HOST.py**: This is the main ransomware payload script used by the malicious host. It establishes a connection with the target IoT device and sends commands to trigger ransomware attacks, demonstrating the network's vulnerability and testing the implemented security defenses.
 
+- **RANSOMWARE PAYLOAD - Server.py**: This script simulates ransomware behaviour. It mimics the actions of ransomware on the network, such as encrypting files and demanding ransom, to test the effectiveness of the implemented security measures.
 
 ## Installation and Setup
 
